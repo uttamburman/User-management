@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/homebody_header.ejs') -%>
+</head>
+<body >
+  <br>
+  <div class="row">
+    <div class="col-xs-6 col-sm-3">
+        <div class = "Cardbody01">
+          <div id="login-container">
+              <div class="user-img">
+             
+              </div>
+              <h1 >
+                User Details
+              </h1>
+              <div class="description">
+                
+              </div>
+            <button onclick="png_render('/User')"> User</button>
+              <footer>
+               
+              </footer>
+            </div>
+            </div>
+    </div>
+    <div class="col-xs-6 col-sm-3">  <div class = "Cardbody01">
+          <div id="login-container">
+              <div class="profile-img">
+                <!-- <img src="../img/user.png"> -->
+              </div>
+              <h1 >
+                Profile Edit
+              </h1>
+              <div class="description">
+                
+              </div>
+            <button onclick="png_render('/profile_Edit')"> Profile Edit</button>
+              <footer>
+               
+              </footer>
+            </div>
+            </div>
+          </div>
+    <div class="col-xs-6 col-sm-3 ">  <div class = "Cardbody01">
+          <div id="login-container">
+              <div class="employee-img ">
+                <!-- <img src="../img/user.png"> -->
+              </div>
+              <h1 style="margin: 0px 10% ">
+                Employee Master
+              </h1 >
+              <div class="description">
+             
+              </div>
+            <button style="margin-bottom: 0px;margin-top: 8px;" onclick="png_render('/get_emp_data')">Employees </button>
+              <footer>
+               
+              </footer>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-sm-3 ">  <div class = "Cardbody01">
+            <div id="login-container">
+                <div class="configuration-img">
+                  <!-- <img src="../img/user.png"> -->
+                </div>
+                <h1>Configuration
+                </h1>
+              <button onclick="png_render('/Configuration')">Configuration</button>
+                <footer>
+                 
+                </footer>
+              </div>
+              </div>
+            </div>
+  </div>
+  
+
+  
+        </body>
+</html>

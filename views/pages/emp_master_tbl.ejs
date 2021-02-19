@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/emp_master_tbl_header.ejs') -%>
+
+</head>
+    <body >
+        <%- include ('../partials/emp_master_modal.ejs') -%>
+        <div>
+           <a href="/home"> <i class="fa fa-home" aria-hidden="true"></i> Home </a> <strong>></strong> <i class="fa fa-fw fa-user"></i> Employees 
+        </div>
+      
+        <% if(alertMsg != ''){ %>
+            <br>
+            <div id ="show_message" class="alert alert-danger alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <strong>Warning !</strong> <%= alertMsg %></div>
+        <% } %>
+        <div class="container-xl">
+            <div class="table01-responsive">
+                <div class="table01-wrapper">
+                    <div class="table01-title">
+                        <div class="row">
+                            <div class="col-sm-4" style="text-align: left;"><h2><b> Employees Master</b></h2></div>
+                            <div class="col-sm-8"> 
+                                <% if (userRoles.includes('ADMIN') || userRoles.includes('SUPER ADMIN')) { %> 
+                                <button id="Btn_Emp_master_addnewuserId" data-target="#addEmployeemasterModal" class="btn btn-success" data-toggle="modal" title="Add new user"><i class="material-icons">&#xE147;</i> <span>Add New User</span></button>
+                                <% if (userRoles.includes('SUPER ADMIN')) { %> 
+                                <button data-target="#deleteAllEmployeeMasterModal" class="btn btn-danger" data-toggle="modal" title="Delete selected users"><i class="material-icons">&#xE15C;</i> <span>Delete</span></button>						
+                                    <%  } %>
+                                    <%  } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% if (lst_Allemp.length > 0) { %>
+                    <table class="table01 table01-striped table01-hover">
+                        <thead>
+                            <tr>
+                                <% if (userRoles.includes('SUPER ADMIN')) { %> 
+                                <th>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="selectAll01">
+                                        <label for="selectAll01"></label>
+                                    </span>
+                                </th>
+                                <%  } %>
+                                <th style="width:20%">Name</th>
+                                <th >ID</th>
+                                <th >ISID</th>
+                                <th style="width:20%">Email</th>
+                                <% if (userRoles.includes('ADMIN') || userRoles.includes('SUPER ADMIN')) { %> 
+                                <th >Actions</th>
+                                <%  } %>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% lst_Allemp.forEach(function(item , index){%>
+                            <tr>
+                                <% if (userRoles.includes('SUPER ADMIN')) { %> 
+                                <td>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="checkbox1" name="options[]" value="<%= item.emp_Id %>">
+                                        <label for="checkbox1"></label>
+                                    </span>
+                                </td>
+                                <%  } %>
+                                <td style="width:20%" ><%= item.emp_name  %></td>
+                                <td  ><%= item.emp_Id %> </td>
+                                <td ><%= item.emp_ISID %></td>
+                                <td style="width:20%"><%= item.emp_email %></td>
+                                <td>
+                                    <% if (userRoles.includes('ADMIN') || userRoles.includes('SUPER ADMIN')) { %> 
+                                    <a href="#editEmployeeMasterModal" id="editEmployeeMasterModalId" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" hidden>&#xE254;</i></a>
+                                    <a  onclick="edit_data01('<%= item.emp_Id %>')" class="edit01"  data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit" >&#xE254;</i></a>
+                                    <% if (userRoles.includes('SUPER ADMIN')) { %> 
+                                    <a  onclick="deleteEmp01('<%= item.emp_Id %>')" class="delete01" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="#deleteEmployeeMasterModal" id="delete_Emp_modelbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete" hidden>&#xE872;</i></a>
+                                    <%  } %>
+                                    <%  } %>
+                                </td>
+                            </tr>
+                            <%  }); %>
+                        </tbody>
+                    </table>
+                   
+                   
+                    <% } else { %>
+                        <p><strong>There are no records available ...</strong></p>
+                 <%  } %>
+                </div>
+            </div>        
+        </div>
+
+</body>
+
+</html>

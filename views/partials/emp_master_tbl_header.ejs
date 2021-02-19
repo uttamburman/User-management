@@ -1,0 +1,343 @@
+
+<style>
+    body {
+        color: #566787;
+        background: #f5f5f5;
+        font-family: 'Varela Round', sans-serif;
+        font-size: 13px;
+    }
+    .table01-responsive {
+        margin: 30px 0;
+    }
+    .table01-wrapper {
+        background: #fff;
+        padding: 20px 25px;
+        border-radius: 3px;
+        min-width: 1000px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+    .table01-title {        
+        padding-bottom: 15px;
+        background: #435d7d;
+        color: #fff;
+        padding: 16px 30px;
+        min-width: 100%;
+        margin: -20px -25px 10px;
+        border-radius: 3px 3px 0 0;
+    }
+    .table01-title h2 {
+        margin: 5px 0 0;
+        font-size: 24px;
+    }
+    .table01-title .btn-group {
+        float: right;
+    }
+    .table01-title .btn {
+        color: #fff;
+        float: right;
+        font-size: 13px;
+        border: none;
+        min-width: 50px;
+        border-radius: 2px;
+        border: none;
+        outline: none !important;
+        margin-left: 10px;
+    }
+    .table01-title .btn i {
+        float: left;
+        font-size: 21px;
+        margin-right: 5px;
+    }
+    .table01-title .btn span {
+        float: left;
+        margin-top: 2px;
+    }
+    table.table01 tr th, table.table01 tr td {
+        border-color: #e9e9e9;
+        padding: 12px 15px;
+        /* vertical-align: middle; */
+    }
+    table.table01 tr th:first-child {
+        width: 60px;
+    }
+    table.table01 tr th:last-child {
+        width: 20%;
+    }
+    table.table01-striped tbody tr:nth-of-type(odd) {
+        background-color: #fcfcfc;
+    }
+    table.table01-striped.table01-hover tbody tr:hover {
+        background: #f5f5f5;
+    }
+    table.table01 th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }	
+    table.table01 td:last-child i {
+        opacity: 0.9;
+        font-size: 22px;
+        margin: 0 5px;
+    }
+    table.table01 td a {
+        font-weight: bold;
+        color: #566787;
+        display: inline-block;
+        text-decoration: none;
+        outline: none !important;
+    }
+    table.table01 td a:hover {
+        color: #2196F3;
+    }
+    table.table01 td a.edit01 {
+        color: #FFC107;
+    }
+    table.table01 td a.delete01 {
+        color: #F44336;
+    }
+    table.table01 td i {
+        font-size: 19px;
+    }
+    table.table01 .avatar {
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .pagination {
+        float: right;
+        margin: 0 0 5px;
+    }
+    .pagination li a {
+        border: none;
+        font-size: 13px;
+        min-width: 30px;
+        min-height: 30px;
+        color: #999;
+        margin: 0 2px;
+        line-height: 30px;
+        border-radius: 2px !important;
+        text-align: center;
+        padding: 0 6px;
+    }
+    .pagination li a:hover {
+        color: #666;
+    }	
+    .pagination li.active a, .pagination li.active a.page-link {
+        background: #03A9F4;
+    }
+    .pagination li.active a:hover {        
+        background: #0397d6;
+    }
+    .pagination li.disabled i {
+        color: #ccc;
+    }
+    .pagination li i {
+        font-size: 16px;
+        padding-top: 6px
+    }
+    .hint-text {
+        float: left;
+        margin-top: 10px;
+        font-size: 13px;
+    }    
+    /* Custom checkbox */
+    .custom-checkbox {
+        position: relative;
+    }
+    .custom-checkbox input[type="checkbox"] {    
+        opacity: 0;
+        position: absolute;
+        margin: 5px 0 0 3px;
+        z-index: 9;
+    }
+    .custom-checkbox label:before{
+        width: 18px;
+        height: 18px;
+    }
+    .custom-checkbox label:before {
+        content: '';
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        background: white;
+        border: 1px solid #bbb;
+        border-radius: 2px;
+        box-sizing: border-box;
+        z-index: 2;
+    }
+    .custom-checkbox input[type="checkbox"]:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 3px;
+        width: 6px;
+        height: 11px;
+        border: solid #000;
+        border-width: 0 3px 3px 0;
+        transform: inherit;
+        z-index: 3;
+        transform: rotateZ(45deg);
+    }
+    .custom-checkbox input[type="checkbox"]:checked + label:before {
+        border-color: #03A9F4;
+        background: #03A9F4;
+    }
+    .custom-checkbox input[type="checkbox"]:checked + label:after {
+        border-color: #fff;
+    }
+    .custom-checkbox input[type="checkbox"]:disabled + label:before {
+        color: #b8b8b8;
+        cursor: auto;
+        box-shadow: none;
+        background: #ddd;
+    }
+    /* Modal styles */
+    .modal .modal-dialog {
+        max-width: 400px;
+    }
+    .modal .modal-header, .modal .modal-body, .modal .modal-footer {
+        text-align: left;
+        padding: 20px 30px;
+    }
+    .modal .modal-content {
+        border-radius: 3px; 
+        font-size: 14px; 
+    }
+    .modal .modal-footer {
+        background: #ecf0f1;
+        border-radius: 0 0 3px 3px;
+    }
+    .modal .modal-title {
+        display: inline-block;
+    }
+    .modal .form-control {
+        border-radius: 2px;
+        box-shadow: none;
+        border-color: #dddddd;
+    }
+    .modal textarea.form-control {
+        resize: vertical;
+    }
+    .modal .btn {
+        border-radius: 2px;
+        min-width: 100px;
+    }	
+    .modal form label {
+        font-weight: normal;
+    }	
+    .isDisabled {
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+            }
+
+
+    </style>
+
+    <script>
+ 
+    var table01;
+    $(document).ready(function(){
+        table01 = $('.table01').DataTable({
+            // "lengthMenu": [[2, 3, 4, -1], [2, 3, 4, "All"]],
+        });
+        $('#deleteAllBtn').attr( 'class', 'btn btn-danger disabled' );   
+        // Handle click on "Select all" control
+        $('#selectAll01').on('click', function(){
+            $('#deleteAllBtn').attr( 'class', 'btn btn-danger enabled' );   
+            // Get all rows with search applied
+            var rows = table01.rows({ 'search': 'applied' }).nodes();
+            // Check/uncheck checkboxes for all rows in the table
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+            if(!this.checked){
+                $('#deleteAllBtn').attr( 'class', 'btn btn-danger disabled' );  
+                } 
+                        
+        });
+
+        $('#addEmployeeModal').on('hidden.bs.modal', function () {
+            $(this).find("input,textarea,select").val('').end();
+
+        });
+        
+
+        // Handle click on checkbox to set state of "Select all" control
+        $('.table01 tbody').on('change', 'input[type="checkbox"]', function(){
+            var rows = table01.rows({ 'search': 'applied' }).nodes();
+            var numberOfChecked = $('input:checkbox:checked', rows);
+            var numberOfCheckBox = $('input:checkbox', rows);
+            if(numberOfChecked.length==numberOfCheckBox.length){
+                $('#selectAll01').prop("checked",true);
+            }else{
+                $('#deleteAllBtn').attr( 'class', 'btn btn-danger enabled' ); 
+                $('#selectAll01').prop("checked",false); 
+            }
+        });
+
+    });
+    function edit_data01(emp_id){ 
+        var url = "/emp_datatbl01/edit/"+emp_id;
+        console.log(url);
+        $.get(url, function(data, status){
+            if(status=="success"){
+                var emp_data = data[0];
+                console.log(emp_data)
+                $("#empId01").val(emp_data.emp_Id);
+                $("#empNameId01").val(emp_data.emp_name);
+                $("#empEmailId01").val(emp_data.emp_email);
+                $("#empISIDData01").val(emp_data.emp_ISID);
+                $("#Emp_MasterTblupdtaeform").attr('action','/emp_datatbl01/update/'+ emp_id);
+            }   
+                    
+        });
+        $("#editEmployeeMasterModalId").click();
+    }
+   
+   function deleteEmp01(id){
+        
+        var url = "/emp_datatbl01/detele/"+id;
+        $("#delete_Emp_modalform").attr('action',url);
+        $("#delete_Emp_modelbtn").click(); 
+   }
+
+    function deleteTblAlldata(){ 
+        var rows = table01.rows({ 'search': 'applied' }).nodes();
+        var numberOfChecked = $('input:checkbox:checked', rows);
+        var numberOfCheckBox = $('input:checkbox', rows);
+        var arrayIds = [];
+ 
+        numberOfChecked.each(function(){
+            arrayIds.push($(this).val());
+        });
+        var type = "";
+        if(numberOfCheckBox.length==arrayIds.length){
+            type="all"
+            arrayIds = []
+        }else{
+            type="selected"
+        }
+       if ( arrayIds.length >0){
+          
+        var valueMap = {
+            "type": type,
+            "itemids": arrayIds
+        }
+        var url = "/emp_datatbl01/deteleSelected_data"
+        $.post(url, valueMap,function(data, status){
+            if(status =="success"){
+                $("#deleteAllEmployeeMasterModal .close").click();
+                $('.modal-backdrop').remove();
+                // location.href="/png01#Modal_design";
+                location.reload();
+             }
+        });
+    }else{
+    alert("You can not delete all records.")
+       }
+
+    }
+
+  
+
+    </script>

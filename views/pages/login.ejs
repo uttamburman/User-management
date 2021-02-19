@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include ('../partials/common_header.ejs') -%>
+    <%- include ('../partials/login_header.ejs') -%>
+  </head>
+  <body>
+    <section class="form-02-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="_lk_de">
+              <form id="loginformId"  name ="loginForm" action="#" method="POST">
+              <div class="form-03-main">
+                <div class="logo">
+                  <img src="../img/user.png">
+                </div>
+                <div class="form-group center-block">
+                  <input type="email" name="email" id="emailId"class="form-control"    type="text" placeholder="Enter Email" required="" aria-required="true">
+                </div>
+
+                <div class="form-group center-block">
+                  <input type="password" name="password" id="passwordId"class="form-control"  type="text" placeholder="Enter Password" required="" aria-required="true">
+                </div>
+
+                <div class="form-group center-block">
+                  <!-- <div class="form-check"> -->
+                  <div style="display: none" class="form-control login-error-message alert alert-danger">
+                        Invalid Username/Passowrd
+                    </div>
+                  <!-- </div> -->
+           
+                </div>
+
+                <div class="form-group center-block">
+                  <!-- <div class="_btn_04"> -->
+                    <button type="button" onclick="login(event)" class="_btn_04">Login</button> 
+                  <!-- </div> -->
+                  <!-- <button type="submit" class="_btn_04">Login</button> -->
+                </div>
+
+                <div class="form-group pt-0">
+                  <div class="_social_04">
+                  </div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

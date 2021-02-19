@@ -1,0 +1,27 @@
+
+<script>
+     $(document).ready(function(){
+      $('.btn-role-edit').click(function(){
+        $('.ui-input').attr('style','display:none');
+        $('.ui-select').show();
+      
+      })
+    })
+
+       function edit_data(emp_id){ 
+        var url = "/get_emp_data/edit/"+emp_id;
+        $.get(url, function(data, status){
+            if(status=="success"){
+                var emp_data = data[0];
+                console.log(emp_data);
+                $("#empdataId02").val(emp_data.id)
+                $("#empNameId").val(emp_data.user_name);
+                $("#empEmailId").val(emp_data.name);
+                $("#addroleId02").val(emp_data.role);
+                $("#empISIDData").val(emp_data.isid);
+                $("#Tableupdatesubmit").attr('action',' /emp_datatbl02/update/'+emp_data.id)
+            }           
+        });
+        $("#editModal").click();
+    }
+</script>
